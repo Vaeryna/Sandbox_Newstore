@@ -20,4 +20,5 @@ export class CreateJsonFileService {
   createStore(data: any) {
     return this.http.post(`${this.url}/createStore`, data);
   }
+
 }

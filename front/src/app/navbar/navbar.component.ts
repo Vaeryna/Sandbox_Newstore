@@ -1,5 +1,3 @@
-// noinspection CommaExpressionJS
-
 import {Component, OnInit} from '@angular/core';
 
 @Component({
@@ -12,18 +10,20 @@ export class NavbarComponent implements OnInit {
   activeStore!: string;
   activeProduct!: string;
 
-  constructor() {
-  }
-
   name!: string;
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
     this.activeHome = 'active';
     const nameRaw = sessionStorage.getItem('name');
+    console.log(nameRaw);
+
     if (nameRaw)
       this.name = nameRaw.replace(/_/g, ' ')
 
-    console.log('name : ', this.name);
   }
 
   setActiveHome() {

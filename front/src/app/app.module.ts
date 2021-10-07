@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CreateStoreComponent } from './create-store/create-store.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {CreateStoreComponent} from './create-store/create-store.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HomeComponent } from './home/home.component';
-import { ChooseNameComponent } from './choose-name/choose-name.component';
-import { CreateProductComponent } from './create-product/create-product.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {HttpClientModule} from '@angular/common/http';
+import {NavbarComponent} from './navbar/navbar.component';
+import {HomeComponent} from './home/home.component';
+import {ChooseNameComponent} from './choose-name/choose-name.component';
+import {CreateProductComponent} from './create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +19,8 @@ import { CreateProductComponent } from './create-product/create-product.componen
     CreateStoreComponent,
     NavbarComponent,
     HomeComponent,
-
     ChooseNameComponent,
-     CreateProductComponent,
+    CreateProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,4 +33,5 @@ import { CreateProductComponent } from './create-product/create-product.componen
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
