@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+# Back
+This project use Express
+
+## Development server
+Run `npm start` for a server. Navigate to `http://localhost:3000/`. If you want the app to automatically reload if you change any of the source files, run `nodemon bin/www`.
+
+## Don't forget to do `npm install` in the folders of both your front and back to install the dependencies
