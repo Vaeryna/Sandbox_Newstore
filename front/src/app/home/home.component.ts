@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CookieService} from "ngx-cookie-service";
+
 
 
 @Component({
@@ -8,18 +8,18 @@ import {CookieService} from "ngx-cookie-service";
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  name!: string | null;
-
+  name!: string;
 
   constructor() {
   }
 
   ngOnInit(): void {
     const nameRaw = sessionStorage.getItem('name');
+    console.log(nameRaw);
+
     if (nameRaw)
       this.name = nameRaw.replace(/_/g, ' ')
 
     console.log('name : ', this.name);
-
   }
 }

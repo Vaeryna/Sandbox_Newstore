@@ -246,7 +246,7 @@ export class CreateStoreComponent implements OnInit {
 
     this.Jfile.createStore(store).subscribe((a: any) => {
       console.log('new shop id : ', a);
-        this.route.navigate([`/download/store`]);
+      /*  this.route.navigate([`/download/store`]);*/
     });
   }
 }
