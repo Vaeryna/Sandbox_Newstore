@@ -1,5 +1,21 @@
 
 <form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
+
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="shopName">
+      Nom de la boutique
+    </label>
+    <div class="col-sm-3">
+      <input
+        class="form-control"
+        formControlName="shopName"
+        type="text"
+        name="shopName"
+
+      />
+    </div>
+  </div>
+
   <div>
     <!------- ACTIVE STATUS -------->
     <label for="active_status"> La boutique sera-t-elle active ? </label>

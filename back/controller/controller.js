@@ -10,7 +10,7 @@ exports.setCookie = function (req, res, next) {
     name = req.body.name
     const data2 = name.replace(/ /g, '_');
     res.cookie("name", data2)
-    console.log("data formaté+", data2);
+    console.log("data formatée", data2);
     // next();
     res.send({message: `Cookie créé avec ${data2}`})
 
@@ -35,16 +35,20 @@ exports.createFolder = function (req, res, next) {
 
 //write a store file in the file "store.json"
 exports.writeFileStore = function (req, res, next) {
-    console.log("cookies", req.cookies.name)
 
-    const StoreName = req.cookies.name;
-    let data = JSON.stringify(req.body);
+    const storeName = req.params.storeName;
 
-    //  fs.writeFileSync(`../../Magasins/${StoreName}/store.json`, data);
-    fs.writeFileSync(`../../Magasins/mag_02/store.json`, data);
+    const shopName = req.body.shopName;
+    let data = JSON.stringify(req.body.shop);
+
+    console.log("path", `../../Magasins/${storeName}/store-${shopName}.json`)
+
+    console.log('storename', storeName, '\n shopname', shopName, "\n data", data)
+    fs.writeFileSync(`../../Magasins/${storeName}/store-${shopName}.json`, data);
     console.log("File written successfully\n");
-    res.send({message: "Fichier enregistré"});
+    res.send({message: "Store create successfully"});
 };
+
 
 //write a product in the file "product.json"
 exports.writeFileProduct = function (req, res, next) {
@@ -59,6 +63,19 @@ exports.writeFileProduct = function (req, res, next) {
     next()
 }
 
-
-
-
+// CREATE STORE FILES
+/*
+exports.newStore = function (req, res, next) {
+    const SignName = ""
+    const StoreName = ""
+    if (`../../Magasins/${SignName}`) {
+        if (`../../Magasins/${SignName}/${StoreName}.json`) {
+            /!* new file with name+i*!/
+        } else {
+            /!*create new file*!/
+        }
+    } else {
+        /!*create folder*!/
+        /!* create file*!/
+    }
+}*/

@@ -45,7 +45,7 @@ export class ChooseNameComponent implements OnInit {
     console.log('dataRaw: ', dataRaw);
     this.cS.setCookie(dataRaw);
 
-    // window.location.reload()
+    window.location.reload()
 
 
   }
