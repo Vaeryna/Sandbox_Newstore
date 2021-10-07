@@ -35,7 +35,7 @@ exports.createFolder = function (req, res, next) {
 exports.writeFileStore = function (req, res, next) {
     const StoreName = req.cookies.name;
     let data = JSON.stringify(req.body);
-    
+
 
     fs.writeFileSync(`../../Magasins/${StoreName}/store.json`, data);
     console.log("File written successfully\n");
