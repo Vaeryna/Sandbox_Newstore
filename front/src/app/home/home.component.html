@@ -1,0 +1,55 @@
+<div *ngIf="!name">
+  <app-choose-name></app-choose-name>
+</div>
+
+<div *ngIf="name">
+  <h1 id="modal">
+    {{ name }}
+  </h1>
+
+  <div class="row">
+    <div class="card" style="width: 18rem">
+      <img
+        src="../../assets/img/store.png"
+        class="card-img-top"
+        alt="store_image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Créer une nouvelle boutique</h5>
+        <p class="card-text">
+          Créer le fichier permettant de paramétrer une nouvelle boutique
+        </p>
+        <a routerLink="/createStore" class="btn btn-info">Créer une boutique</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem">
+      <img
+        src="../../assets/img/client.jpg"
+        class="card-img-top"
+        alt="new_client_image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Créer un nouveau client</h5>
+        <p class="card-text">
+          Créer le fichier permettant de paramétrer un nouveau client
+        </p>
+        <a routerLink="/createCustomer" class="btn btn-info">Créer un client </a>
+      </div>
+
+    </div>
+    <div class="card" style="width: 18rem">
+      <img
+        src="../../assets/img/box2.png"
+        class="card-img-top"
+        alt="new_product_image"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Créer un nouveau produit</h5>
+        <p class="card-text">
+          Créer le fichier permettant de paramétrer un nouveau produit
+        </p>
+        <a routerLink="/createProduct" class="btn btn-info">Créer un produit </a>
+      </div>
+    </div>
+  </div>

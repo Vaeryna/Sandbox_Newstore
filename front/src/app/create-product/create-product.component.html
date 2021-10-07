@@ -1,0 +1,545 @@
+<!-- ############ HEADER ##########-->
+<h2>Paramètres du shop</h2>
+<form [formGroup]="headForm">
+  <div class="row">
+    <div class="col-md-3">
+      <label class="form-label" for="shop"> Nom du Shop </label>
+
+
+
+      <input
+        type="text"
+        formControlName="shop"
+        name="shop"
+        class="form-control"
+      />
+      Un produit est importé dans un shop. Le shop contient les produits,
+      leurs prix et leurs catégories
+
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="name"> locale</label>
+      <input
+        type="text"
+        formControlName="locale"
+        name="locale"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="is_master"> is_master</label>
+      <div class="form-check">
+        <label for="masterYes" class="form-check-label"> Oui </label>
+        <input
+          type="radio"
+          formControlName="is_master"
+          name="is_master"
+          class="form-check-input"
+          [value]="true"
+          id="masterYes"
+        />
+      </div>
+      <div class="form-check">
+        <label for="masterNo" class="form-check-label"> Non</label>
+        <input
+          type="radio"
+          formControlName="is_master"
+          name="is_master"
+          class="form-check-input"
+          [value]="false"
+          id="masterNo"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- ############ NEW PRODUCT ##########-->
+<h2>Produit</h2>
+<form [formGroup]="productForm">
+  <div class="row">
+    <div class="col-md-3">
+      <label class="form-label" for="product_id"> product ID</label>
+      <input
+        type="text"
+        formControlName="product_id"
+        name="product_id"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="variant_group_id"> variant_group_id</label>
+      <input
+        type="text"
+        formControlName="variant_group_id"
+        name="variant_group_id"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="title"> title</label>
+      <input
+        type="text"
+        formControlName="title"
+        name="title"
+        class="form-control"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <label class="form-label" for="caption"> Légende du produit</label>
+      <textarea
+        type="text"
+        formControlName="caption"
+        name="caption"
+        class="form-control"
+      >
+      </textarea>
+    </div>
+  </div>
+
+  <!-- show in listing radio -->
+  <div class="col-md-3">
+    <label class="form-label" for="show_in_listing"> show_in_listing</label>
+    <div class="form-check">
+      <label for="show_in_listingYes" class="form-check-label"> Oui </label>
+      <input
+        type="radio"
+        formControlName="show_in_listing"
+        name="show_in_listing"
+        class="form-check-input"
+        [value]="true"
+        id="show_in_listingYes"
+      />
+    </div>
+    <div class="form-check">
+      <label for="show_in_listingNo" class="form-check-label"> Non</label>
+      <input
+        type="radio"
+        formControlName="show_in_listing"
+        name="show_in_listing"
+        class="form-check-input"
+        [value]="false"
+        id="show_in_listingNo"
+      />
+    </div>
+  </div>
+
+  <!--preorder-->
+  <div class="col-md-3">
+    <label class="form-label" for="preorder_start"> Date de début des précommandes</label>
+    <input
+      type="date"
+      formControlName="preorder_start"
+      name="preorder_start"
+      class="form-control"
+    />
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <label class="form-label" for="online_from"> Date de <strong> début </strong> de mise en ligne</label>
+      <input
+        type="date"
+        formControlName="online_from"
+        name="online_from"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="online_to"> Date de <strong> fin </strong> de mise en ligne</label>
+      <input
+        type="date"
+        formControlName="online_to"
+        name="online_to"
+        class="form-control"
+      />
+    </div>
+  </div>
+
+  <!-- IMAGES -->
+  <table class="table" formArrayName="images">
+    <tr>
+      <th colspan="2">Ajouter une image :</th>
+      <th>
+        <button type="button" (click)="addImage()" class="btn btn-info">
+          Nouvelle image
+        </button>
+      </th>
+    </tr>
+    <tr
+      *ngFor="let image of images().controls; let i = index"
+      [formGroupName]="i"
+    >
+      <td>
+        url :
+        <input type="url" formControlName="url" class="form-control" placeholder="https://via.placeholder.com/150"/>
+      </td>
+      <td>
+        internal_dimension_height:
+        <input type="number" formControlName="internal_dimension_height" class="form-control" placeholder="2000"/>
+
+        internal_dimension_width:
+        <input type="number" formControlName="internal_dimension_width" class="form-control" placeholder="1414"/>
+
+        internal_dominant_color:
+        <input id="color" type="color" formControlName="internal_dominant_color" class="form-control"
+        />
+
+
+      </td>
+      <td>
+        <!-- show in listing radio -->
+        <div>
+          <label class="form-label" for="is_main"> Image principale</label>
+          <div class="form-check">
+            <label for="is_mainYes" class="form-check-label"> Oui </label>
+            <input
+              type="radio"
+              formControlName="is_main"
+              name="is_main"
+              class="form-check-input"
+              [value]="true"
+              id="is_mainYes"
+            />
+          </div>
+          <div class="form-check">
+            <label for="is_mainNo" class="form-check-label"> Non</label>
+            <input
+              type="radio"
+              formControlName="is_main"
+              name="is_main"
+              class="form-check-input"
+              [value]="false"
+              id="is_mainNo"
+            />
+          </div>
+        </div>
+      </td>
+
+      <td>
+        <button (click)="removeImage(i)" class="btn btn-outline-danger">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+
+
+  <div class="col-md-3">
+    <label class="form-label" for="tax_class_id"> tax_class_id</label>
+    <input
+      type="text"
+      formControlName="tax_class_id"
+      name="tax_class_id"
+      class="form-control"
+      placeholder="standard"
+    />
+  </div>
+
+  <!-- Categories -->
+  <table class="table" formArrayName="categories">
+    <tr>
+      <th colspan="2">Ajouter une catégorie :</th>
+      <th>
+        <button type="button" (click)="addCategory()" class="btn btn-info">
+          Nouvelle catégorie
+        </button>
+      </th>
+    </tr>
+    <tr
+      *ngFor="let category of categories().controls; let i = index"
+      [formGroupName]="i"
+    >
+      <td>
+        Chemin de catégorie :
+        <input type="text" formControlName="path" class="form-control" placeholder="SUMMER > DRESSES"/>
+      </td>
+      <td class="col-md-3">
+        Position
+        <input type="number" formControlName="position" class="form-control"/>
+
+      </td>
+      <td>
+        <!-- show in listing radio -->
+        <div>
+          <label class="form-label" for="is_mainCategory"> Catégorie principale</label>
+          <div class="form-check">
+            <label for="is_mainCategoryYes" class="form-check-label"> Oui </label>
+            <input
+              type="radio"
+              formControlName="is_mainCategory"
+              name="is_mainCategory"
+              class="form-check-input"
+              [value]="true"
+              id="is_mainCategoryYes"
+            />
+          </div>
+          <div class="form-check">
+            <label for="is_mainCategoryNo" class="form-check-label"> Non</label>
+            <input
+              type="radio"
+              formControlName="is_mainCategory"
+              name="is_mainCategory"
+              class="form-check-input"
+              [value]="false"
+              id="is_mainCategoryNo"
+            />
+          </div>
+        </div>
+      </td>
+
+      <td>
+        <button (click)="removeCategory(i)" class="btn btn-outline-danger">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+
+
+  <div class="row">
+
+    <div class="col-md-3">
+      <label class="form-label" for="material"> Matériaux</label>
+      <input
+        type="text"
+        formControlName="material"
+        name="material"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="country_of_origin"> Pays d'origine</label>
+      <input
+        type="text"
+        formControlName="country_of_origin"
+        name="country_of_origin"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="product_hts_number"> product_hts_number</label>
+      <input
+        type="text"
+        formControlName="product_hts_number"
+        name="product_hts_number"
+        class="form-control"
+      />
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3">
+      <label class="form-label" for="shipping_weight_value"> shipping_weight_value</label>
+      <input
+        type="number"
+        formControlName="shipping_weight_value"
+        name="shipping_weight_value"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="shipping_weight_unit"> shipping_weight_unit</label>
+      <input
+        type="text"
+        formControlName="shipping_weight_unit"
+        name="shipping_weight_unit"
+        class="form-control"
+      />
+    </div>
+
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3">
+      <label class="form-label" for="shipping_dimension_length"> shipping_dimension_length</label>
+      <input
+        type="number"
+        formControlName="shipping_dimension_length"
+        name="shipping_dimension_length"
+        class="form-control"
+      />
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="shipping_dimension_width"> shipping_dimension_width</label>
+      <input
+        type="number"
+        formControlName="shipping_dimension_width"
+        name="shipping_dimension_width"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="shipping_dimension_height"> shipping_dimension_height</label>
+      <input
+        type="number"
+        formControlName="shipping_dimension_height"
+        name="shipping_dimension_height"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="shipping_dimension_unit"> shipping_dimension_unit</label>
+      <input
+        type="text"
+        formControlName="shipping_dimension_unit"
+        name="shipping_dimension_unit"
+        class="form-control"
+      />
+    </div>
+  </div>
+
+  <!--VARIATIONS-->
+  <div class="col-md-3">
+    <label class="form-label" for="variation_color_value"> variation_color_value</label>
+    <input
+      type="text"
+      formControlName="variation_color_value"
+      name="variation_color_value"
+      class="form-control"
+    />
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label" for="variation_size_value"> variation_size_value</label>
+    <input
+      type="text"
+      formControlName="variation_size_value"
+      name="variation_size_value"
+      class="form-control"
+    />
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label" for="variation_size_gender"> variation_size_gender</label>
+    <input
+      type="text"
+      formControlName="variation_size_gender"
+      name="variation_size_gender"
+      class="form-control"
+    />
+  </div>
+
+
+  <div class="col-md-3">
+    <label class="form-label" for="google_category"> google_category</label>
+    <input
+      type="text"
+      formControlName="google_category"
+      name="google_category"
+      class="form-control"
+    />
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label" for="variation_size_type"> variation_size_type</label>
+    <input
+      type="text"
+      formControlName="variation_size_type"
+      name="variation_size_type"
+      class="form-control"
+    />
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label" for="variation_size_system"> variation_size_system</label>
+    <input
+      type="text"
+      formControlName="variation_size_system"
+      name="variation_size_system"
+      class="form-control"
+    />
+  </div>
+
+
+  <div class="col-md-3">
+    <label class="form-label" for="variation_size_system"> variation_size_system</label>
+    <input
+      type="text"
+      formControlName="variation_size_system"
+      name="variation_size_system"
+      class="form-control"
+    />
+  </div>
+
+  <!--EXTERNAL IDENTIFIERS-->
+  <table class="table" formArrayName="external_identifiers">
+    <tr>
+      <th colspan="2">Ajouter un identifiant externe :</th>
+      <th>
+        <button type="button" (click)="addExternalsID()" class="btn btn-info">
+          Nouvel identifiant
+        </button>
+      </th>
+    </tr>
+    <tr
+      *ngFor="let externalID of externalsID().controls; let i = index"
+      [formGroupName]="i"
+    >
+      <td>
+        Type :
+        <input type="text" formControlName="type" class="form-control" placeholder="sku"/>
+      </td>
+      <td class="col-md-3">
+        Valeur
+        <input type="text" formControlName="value" class="form-control"/>
+      </td>
+
+      <td>
+        <button (click)="removeExternalsID(i)" class="btn btn-outline-danger">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+
+
+  <!--EXTENDED ATTRIBUTE -->
+  <table class="table" formArrayName="extended_attributes">
+    <tr>
+      <th colspan="2">Ajouter un identifiant externe :</th>
+      <th>
+        <button type="button" (click)="addExtendedAttributes()" class="btn btn-info">
+          Nouvel attribut
+        </button>
+      </th>
+    </tr>
+    <tr
+      *ngFor="let extendedAttribute of extendedAttributes().controls; let i = index"
+      [formGroupName]="i"
+    >
+      <td class="col-md-3">
+        Nom :
+        <input type="text" formControlName="name" class="form-control"/>
+      </td>
+      <td class="col-md-3">
+        Valeur
+        <input type="text" formControlName="value" class="form-control"/>
+      </td>
+
+      <td>
+        <button (click)="removeExtendedAttributes(i)" class="btn btn-outline-danger">
+          Remove
+        </button>
+      </td>
+    </tr>
+  </table>
+
+</form>
+
+
+<!-- add button add new product-->
+<button class="btn btn-info" (click)="submit()">Envoyer</button>
+<button class="btn btn-secondary" routerLink="/">Retour</button>

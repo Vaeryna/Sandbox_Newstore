@@ -1,0 +1,16 @@
+.nav-item {
+  font-family: "Times New Roman";
+  color: black;
+}
+
+.nav > li > a.active,
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: #ff7700;
+  font-size: 1.5em;
+  color: white;
+}
+
+.nav-pills .nav-link:not(.active) {
+  color: darkorange;
+}

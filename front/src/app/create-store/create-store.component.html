@@ -1,0 +1,515 @@
+
+<form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
+  <div>
+    <!------- ACTIVE STATUS -------->
+    <label for="active_status"> La boutique sera-t-elle active ? </label>
+    <input
+      class="btn-check"
+      type="radio"
+      formControlName="active_status"
+      name="active_status"
+      [value]="true"
+      id="radioYes"
+      checked
+    /><label class="btn btn-outline-info" for="radioYes"> Oui </label>
+
+    <input
+      class="btn-check"
+      type="radio"
+      formControlName="active_status"
+      name="active_status"
+      [value]="false"
+      id="radioNo"
+    />
+    <label class="btn btn-outline-info" for="radioNo"> Non</label>
+  </div>
+
+  <!------------  Business Hours  ------------------>
+  <div>
+    <label>Horaires de la boutique</label>
+    <div [formGroup]="businessHoursFormMon">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="weekdayMon"
+          (click)="collapseMon.toggle()"
+          onmouseover="console.log('value', value)"
+          [attr.aria-expanded]="!isCollapsedMon"
+          aria-controls="collapseHours"
+          formControlName="weekday_Mon"
+          [value]="1"
+        />
+        <label for="weekdayMon"> Lundi </label>
+
+        <div #collapseMon="ngbCollapse" [(ngbCollapse)]="isCollapsedMon">
+          <input
+            type="time"
+            formControlName="from_time_Mon"
+            name="from_time_Mon"
+          />
+          <input type="time" formControlName="to_time_Mon" name="to_time_Mon" />
+        </div>
+      </div>
+    </div>
+
+    <div [formGroup]="businessHoursFormTue">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="weekdayTue"
+          (click)="collapseTue.toggle()"
+          onmouseover="console.log('value', value)"
+          [attr.aria-expanded]="!isCollapsedTue"
+          aria-controls="collapseHours"
+          formControlName="weekday_Tue"
+          [value]="2"
+        />
+        <label for="weekday_Tue"> Mardi </label>
+
+        <div #collapseTue="ngbCollapse" [(ngbCollapse)]="isCollapsedTue">
+          <input
+            type="time"
+            formControlName="from_time_Tue"
+            name="from_time_Tue"
+          />
+          <input type="time" formControlName="to_time_Tue" name="to_time_Tue" />
+        </div>
+      </div>
+    </div>
+
+    <div [formGroup]="businessHoursFormWed">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          (click)="collapseWed.toggle()"
+          onmouseover="console.log('value', value)"
+          [attr.aria-expanded]="!isCollapsedWed"
+          aria-controls="collapseHours"
+          formControlName="weekday_Wed"
+          [value]="3"
+        />
+        <label for="weekday_Wed"> Mercredi </label>
+        <div #collapseWed="ngbCollapse" [(ngbCollapse)]="isCollapsedWed">
+          <input
+            id="hours"
+            type="time"
+            formControlName="from_time_Wed"
+            name="from_time_Wed"
+          />
+          <input
+            id="hours"
+            type="time"
+            formControlName="to_time_Wed"
+            name="to_time_Wed"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div [formGroup]="businessHoursFormThu">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="weekdayThu"
+          (click)="collapseThu.toggle()"
+          onmouseover="console.log('value', value)"
+          [attr.aria-expanded]="!isCollapsedThu"
+          aria-controls="collapseHours"
+          formControlName="weekday_Thu"
+          [value]="4"
+        />
+        <label for="weekdayMon"> Jeudi </label>
+        <div #collapseThu="ngbCollapse" [(ngbCollapse)]="isCollapsedThu">
+          <input
+            type="time"
+            formControlName="from_time_Thu"
+            name="from_time_Thu"
+          />
+          <input type="time" formControlName="to_time_Thu" name="to_time_Thu" />
+        </div>
+      </div>
+    </div>
+
+    <div [formGroup]="businessHoursFormFri">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="weekdayFri"
+          (click)="collapseFri.toggle()"
+          onmouseover="console.log('value', value)"
+          [attr.aria-expanded]="!isCollapsedFri"
+          aria-controls="collapseHours"
+          formControlName="weekday_Fri"
+          [value]="5"
+        />
+        <label for="weekdayFri"> Vendredi </label>
+        <div #collapseFri="ngbCollapse" [(ngbCollapse)]="isCollapsedFri">
+          <input
+            id="hours"
+            type="time"
+            formControlName="from_time_Fri"
+            name="from_time_Fri"
+          />
+          <input
+            id="hours"
+            type="time"
+            formControlName="to_time_Fri"
+            name="to_time_Fri"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div [formGroup]="businessHoursFormSat">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="weekdaySat"
+          (click)="collapseSat.toggle()"
+          onmouseover="console.log('value', value)"
+          [attr.aria-expanded]="!isCollapsedSat"
+          aria-controls="collapseHours"
+          formControlName="weekday_Sat"
+          [value]="6"
+        />
+        <label for="weekdaySat"> Samedi </label>
+        <div #collapseSat="ngbCollapse" [(ngbCollapse)]="isCollapsedSat">
+          <input
+            id="hours"
+            type="time"
+            formControlName="from_time_Sat"
+            name="from_time_Sat"
+          />
+          <input
+            id="hours"
+            type="time"
+            formControlName="to_time_Sat"
+            name="to_time_Sat"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div [formGroup]="businessHoursFormSun">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="weekdaySun"
+          (click)="collapseSun.toggle()"
+          onmouseover="console.log('value', value)"
+          [attr.aria-expanded]="!isCollapsedSun"
+          aria-controls="collapseHours"
+          formControlName="weekday_Sun"
+          [value]="0"
+        />
+        <label for="weekdaySun"> Dimanche </label>
+        <div #collapseSun="ngbCollapse" [(ngbCollapse)]="isCollapsedSun">
+          <input
+            id="hours"
+            type="time"
+            formControlName="from_time_Sun"
+            name="from_time_Sun"
+          />
+          <input
+            id="hours"
+            type="time"
+            formControlName="to_time_Sun"
+            name="to_time_Sun"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!------------  PRICE UNIT TYPE  ------------------>
+
+  <div>
+    <label for="display_price_unit_type"> Type de prix </label>
+
+    <input
+      class="btn-check"
+      type="radio"
+      formControlName="display_price_unit_type"
+      name="display_price_unit_type"
+      value="net"
+      id="net"
+      checked
+    /><label class="btn btn-outline-info" for="net"> Net </label>
+
+    <input
+      class="btn-check"
+      type="radio"
+      formControlName="display_price_unit_type"
+      name="display_price_unit_type"
+      value="gross"
+      id="brut"
+    />
+    <label class="btn btn-outline-info" for="brut"> Gross</label>
+  </div>
+
+  <!------ DIVISION NAME  ----->
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="division_name">
+      Division name
+    </label>
+    <div class="col-sm-3">
+      <input
+        class="form-control"
+        formControlName="division_name"
+        type="text"
+        name="division_name"
+        placeholder="US"
+      />
+    </div>
+  </div>
+
+  <!------ GIFT WRAPPING  ----->
+  <div>
+    <label for="gift_wrapping"> Emballages cadeaux ? </label>
+    <input
+      class="btn-check"
+      type="radio"
+      formControlName="gift_wrapping"
+      name="gift_wrapping"
+      [value]="true"
+      id="giftYes"
+      checked
+    /><label class="btn btn-outline-info" for="giftYes"> Oui </label>
+
+    <input
+      class="btn-check"
+      type="radio"
+      formControlName="gift_wrapping"
+      name="gift_wrapping"
+      [value]="false"
+      id="giftNo"
+    />
+    <label class="btn btn-outline-info" for="giftNo"> Non</label>
+  </div>
+
+  <!------ SHOP LABEL ----->
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="label">
+      Nom de la boutique
+    </label>
+    <div class="col-sm-3">
+      <input
+        class="form-control"
+        formControlName="label"
+        type="text"
+        name="label"
+        placeholder="001_US_ABC_Street"
+      />
+    </div>
+  </div>
+
+  <!------ TAX INCLUDED  ----->
+  <div>
+    <label for="tax_included"> Taxes incluses ? </label>
+    <input
+      class="btn-check"
+      type="radio"
+      formControlName="tax_included"
+      name="tax_included"
+      [value]="true"
+      id="taxYes"
+      checked
+    /><label class="btn btn-outline-info" for="taxYes"> Oui </label>
+
+    <input
+      class="btn-check"
+      type="radio"
+      formControlName="tax_included"
+      name="tax_included"
+      [value]="false"
+      id="taxNo"
+    />
+    <label class="btn btn-outline-info" for="taxNo"> Non</label>
+  </div>
+
+  <!------ SHOP PHONE NUMBER  ----->
+  <div class="row mb-3">
+    <label class="col-sm-2 col-form-label" for="phone_number">
+      Numéro de téléphone de la boutique
+    </label>
+    <div class="col-sm-3">
+      <input
+        class="form-control"
+        formControlName="phone_number"
+        type="text"
+        name="phone_number"
+        placeholder="202-555-0138"
+      />
+    </div>
+  </div>
+  <!------ PHYSICAL ADDRESS  ----->
+
+  <div id="physicalAddressForm" [formGroup]="physicalAddressForm">
+    <div class="formAddress">
+      <u style="margin-left: -2em">Adresse de la boutique </u>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="address_line_1" class="form-label"> Adresse </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="address_line_1"
+            name="address_line_1"
+            placeholder="12 rue de la forêt"
+          />
+        </div>
+        <!--    <div class="row mb-3">
+        <label for="state" class="col-sm-2 col-form-label"> State </label>
+        <div class="col-sm-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="state"
+            name="state"
+            placeholder="NY"
+          />
+        </div>
+      </div> -->
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-2">
+          <label for="zip_code" class="form-label">Code Postal</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="zip_code"
+            name="zip_code"
+            placeholder="35000"
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="city" class="form-label">Ville</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="city"
+            name="city"
+            placeholder="Squirreltown"
+          />
+        </div>
+
+        <div class="col-md-2">
+          <label for="country_code" class="form-label">Code Pays</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="country_code"
+            name="country_code"
+            placeholder="FR"
+          />
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-2">
+          <label for="latitude" class="form-label"> Latitude</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="latitude"
+            name="latitude"
+            placeholder="45.67756181407705"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for="longitude" class="form-label"> Longitude</label>
+          <input
+            type="number"
+            class="form-control"
+            formControlName="longitude"
+            name="longitude"
+            placeholder="-81.8864899427862"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!------ PRIORITIZATION  ----->
+
+  <!------ SHIPPING ADDRESS (entrepot)  ----->
+  <div id="shippingAddressForm" [formGroup]="shippingAddressForm">
+    <div class="formAddress">
+      <u style="margin-left: -2em">Adresse d'expédition </u>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="address_line_1" class="form-label"> Adresse </label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="address_line_1"
+            name="address_line_1"
+            placeholder="12 rue de la forêt"
+          />
+        </div>
+        <!--    <div class="row mb-3">
+      <label for="state" class="col-sm-2 col-form-label"> State </label>
+      <div class="col-sm-3">
+        <input
+          type="text"
+          class="form-control"
+          formControlName="state"
+          name="state"
+          placeholder="NY"
+        />
+      </div>
+    </div> -->
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-2">
+          <label for="zip_code" class="form-label">Code Postal</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="zip_code"
+            name="zip_code"
+            placeholder="35000"
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="city" class="form-label">Ville</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="city"
+            name="city"
+            placeholder="Squirreltown"
+          />
+        </div>
+
+        <div class="col-md-2">
+          <label for="country_code" class="form-label">Code Pays</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="country_code"
+            name="country_code"
+            placeholder="FR"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!------------ Submit / return   ------------------>
+
+  <div class="form-group col-md-12 m-2">
+    <button type="submit" class="btn btn-primary m-2">Add Store</button>
+
+    <button routerLink="/" class="btn btn-light">Return</button>
+  </div>
+</form>

@@ -1,0 +1,22 @@
+{
+  "active_status": "",
+  "business_hours": [],
+  "division_name": "",
+  "label": "12 rue de la foret",
+  "tax_included": "",
+  "phone_number": "0262206258",
+  "physical_address": {
+    "address_line_1": "12 rue de la foret",
+    "city": "SquirrelTown",
+    "country_code": "35000",
+    "latitude": "",
+    "longitude": "",
+    "zip_code": "35000"
+  },
+  "shipping_address": {
+    "address_line_1": "12 rue de la foret",
+    "city": "SquirrelTown",
+    "country_code": "35000",
+    "zip_code": "35000"
+  }
+}

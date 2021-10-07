@@ -1,0 +1,22 @@
+<h1>Veuillez entrer le nom de votre enseigne</h1>
+
+<form [formGroup]="nameForm" (ngSubmit)="onSubmit()">
+  <div class="row g-3 align-items-center">
+    <div class="col-auto">
+      <label for="name" class="col-form-label">Nom de l'enseigne</label>
+    </div>
+    <div class="col-auto">
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        formControlName="name"
+        name="name"
+      />
+    </div>
+
+    <div class="col-auto">
+      <button type="submit" class="btn btn-info">Valider</button>
+    </div>
+  </div>
+</form>

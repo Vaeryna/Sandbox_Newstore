@@ -1,0 +1,23 @@
+<ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a
+      class="nav-link {{ activeHome }}"
+      routerLink="/"
+      (click)="setActiveHome()"
+    >Home</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link {{ activeStore }}"
+      routerLink="/createStore"
+      (click)="setActiveStore()"
+    >
+      Nouvelle Boutique
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {{ activeStore }}" routerLink="/createProduct"
+       (click)="setActiveProduct()"> Nouveau produit</a>
+  </li>
+</ul>
