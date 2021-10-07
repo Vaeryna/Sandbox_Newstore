@@ -33,4 +33,4 @@ This project use Express
 ## Development server
 Run `npm start` for a server. Navigate to `http://localhost:3000/`. If you want the app to automatically reload if you change any of the source files, run `nodemon bin/www`.
 
-# Don't forget to do `npm install` in the folders back and front for install the dependances
+## Don't forget to do `npm install` in the folders back and front for install the dependances
