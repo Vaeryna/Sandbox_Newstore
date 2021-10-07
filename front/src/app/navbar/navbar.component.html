@@ -21,3 +21,10 @@
        (click)="setActiveProduct()"> Nouveau produit</a>
   </li>
 </ul>
+
+<div *ngIf="name">
+
+  <h1 id="modal">
+    {{ name }}
+  </h1>
+</div>

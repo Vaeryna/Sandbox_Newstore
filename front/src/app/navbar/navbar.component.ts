@@ -15,8 +15,15 @@ export class NavbarComponent implements OnInit {
   constructor() {
   }
 
+  name!: string;
+
   ngOnInit(): void {
     this.activeHome = 'active';
+    const nameRaw = sessionStorage.getItem('name');
+    if (nameRaw)
+      this.name = nameRaw.replace(/_/g, ' ')
+
+    console.log('name : ', this.name);
   }
 
   setActiveHome() {

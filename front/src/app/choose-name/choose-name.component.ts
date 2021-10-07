@@ -8,6 +8,7 @@ import {
 import {Router} from '@angular/router';
 import {CookiesService} from '../services/cookies.service';
 
+
 @Component({
   selector: 'app-choose-name',
   templateUrl: './choose-name.component.html',
@@ -37,9 +38,9 @@ export class ChooseNameComponent implements OnInit {
     sessionStorage.setItem('name', data);
 
     //this.route.navigate([`/`])
-
+    console.log("dataRaw", data)
     this.cS.setCookie(dataRaw)
-    window.location.reload()
+    // window.location.reload()
 
 
   }
