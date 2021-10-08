@@ -152,7 +152,7 @@ export class CreateProductComponent implements OnInit {
   removeExtendedAttributes(i: number) {
     this.extendedAttributes().removeAt(i)
   }
-  
+
 
   submit() {
     const dataHead = this.headForm.value;
@@ -252,8 +252,11 @@ export class CreateProductComponent implements OnInit {
     console.log("products : ", product)
   }
 
-
+  addProduct(){
+    console.log("nouveau produit")
+  }
 }
+
 
 // import product :
 /*
