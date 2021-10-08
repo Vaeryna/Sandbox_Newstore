@@ -1,4 +1,4 @@
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
 
@@ -6,16 +6,15 @@ import {Injectable} from '@angular/core';
   providedIn: 'root',
 })
 export class CookiesService {
-  url = '//localhost:3000';
+  url = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {
 
   }
 
   setCookie(data: any) {
-    console.log("fonction setCookie FRONT");
+    console.log("setCookie FRONT", data);
 
-    // return this.http.get(`localhost:3000/setCookie`);
     return this.http.post(`${this.url}/setCookie`, data);
   }
 }

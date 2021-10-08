@@ -27,14 +27,14 @@ export class NavbarComponent implements OnInit {
   }
 
   setActiveHome() {
-    (this.activeHome = 'active'), (this.activeStore = ''), this.activeProduct = '';
+    (this.activeHome = 'active'), (this.activeStore = ''), (this.activeProduct = '');
   }
 
   setActiveStore() {
-    (this.activeHome = ''), (this.activeStore = 'active'), this.activeProduct = '';
+    (this.activeHome = ''), (this.activeStore = 'active'), (this.activeProduct = '');
   }
 
   setActiveProduct() {
-    (this.activeHome = ''), this.activeStore = '', this.activeProduct = 'active';
+    (this.activeHome = ''), this.activeStore = '', (this.activeProduct = 'active');
   }
 }

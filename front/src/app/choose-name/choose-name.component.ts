@@ -36,17 +36,12 @@ export class ChooseNameComponent implements OnInit {
     const data = dataRawName.replace(/ /g, "_")
 
     dataRaw.name = data;
-    console.log("data", data);
+
     sessionStorage.setItem('name', data);
 
-    //this.route.navigate([`/`])
-
-
     console.log('dataRaw: ', dataRaw);
-    this.cS.setCookie(dataRaw);
+    this.cS.setCookie(dataRaw).subscribe(() => this.route.navigate([`/`]));
 
-    // window.location.reload()
-
-
+    window.location.reload()
   }
 }

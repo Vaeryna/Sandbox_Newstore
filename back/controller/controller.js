@@ -1,23 +1,25 @@
 const fs = require("fs");
 const mkdirp = require("mkdirp");
-const {exists} = require("fs");
+
 
 //set cookies with format for the new folder
-exports.setCookie = function (req, res, next) {
+exports.setCookie = function (req, res) {
     console.log("fonction setCookie BACK")
 
     console.log("recup: ", req.body.name);
     name = req.body.name
     const data2 = name.replace(/ /g, '_');
     res.cookie("name", data2)
-    console.log("data formaté+", data2);
+    console.log("data formatée", data2);
     // next();
-    res.send({message: `Cookie créé avec ${data2}`})
+    mkdirp(`../../Magasins/${data2}`)
+    console.log(`cookie : ${req.cookie}`)
+    res.send({message: `Cookie créé avec '${data2}' \n dossier créé avec '${data2}'`})
 
 };
 
 //Create folder for the new sign
-exports.createFolder = function (req, res, next) {
+exports.createFolder = function (req, res) {
     console.log("name ", req.cookies.name);
     let name = req.cookies.name;
 
@@ -34,17 +36,19 @@ exports.createFolder = function (req, res, next) {
 
 
 //write a store file in the file "store.json"
-exports.writeFileStore = function (req, res, next) {
-    console.log("cookies", req.cookies.name)
+exports.writeFileStore = function (req, res) {
+    const storeName = req.params.storeName;
 
-    const StoreName = req.cookies.name;
-    let data = JSON.stringify(req.body);
+    const shopName = req.body.shopName;
+    let data = JSON.stringify(req.body.shop);
 
-    //  fs.writeFileSync(`../../Magasins/${StoreName}/store.json`, data);
-    fs.writeFileSync(`../../Magasins/mag_02/store.json`, data);
+
+    console.log('storename', storeName, '\n shopname', shopName, "\n data", data)
+    fs.writeFileSync(`../../Magasins/${storeName}/store-${shopName}.json`, data);
     console.log("File written successfully\n");
-    res.send({message: "Fichier enregistré"});
+    res.send({message: "Store create successfully"});
 };
+
 
 //write a product in the file "product.json"
 exports.writeFileProduct = function (req, res, next) {
@@ -59,6 +63,19 @@ exports.writeFileProduct = function (req, res, next) {
     next()
 }
 
-
-
-
+// CREATE STORE FILES
+/*
+exports.newStore = function (req, res, next) {
+    const SignName = ""
+    const StoreName = ""
+    if (`../../Magasins/${SignName}`) {
+        if (`../../Magasins/${SignName}/${StoreName}.json`) {
+            /!* new file with name+i*!/
+        } else {
+            /!*create new file*!/
+        }
+    } else {
+        /!*create folder*!/
+        /!* create file*!/
+    }
+}*/

@@ -1,15 +1,16 @@
 // noinspection ES6UnusedImports
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { CreateJsonFileService } from '../services/create-json-file.service';
+import {DomSanitizer} from '@angular/platform-browser';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {CreateJsonFileService} from '../services/create-json-file.service';
+
 
 @Component({
   selector: 'app-create-store',
@@ -53,7 +54,8 @@ export class CreateStoreComponent implements OnInit {
     private fB: FormBuilder,
     private route: Router,
     private Jfile: CreateJsonFileService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -61,6 +63,7 @@ export class CreateStoreComponent implements OnInit {
 
   initForm() {
     this.storeForm = new FormGroup({
+      shopName: new FormControl('', Validators.required),
       active_status: new FormControl('', Validators.required),
       display_price_unit_type: new FormControl('', Validators.required),
       division_name: new FormControl('', Validators.required),
@@ -236,16 +239,21 @@ export class CreateStoreComponent implements OnInit {
       },
     };
 
-    console.log('value', store);
-    console.log('bhMon table', bHTable);
+    const store2 = {
+      shopName: data.label,
+      shop: store
+    }
 
-    //   this.nS.newStore(store).subscribe(
-    //   (a: any) => console.log('new shop id : ', a.store_id)
-    /* () => this.route.navigate(['/admin']) */
-    // );
+    const storeName: any = sessionStorage.getItem("name");
 
-    this.Jfile.createStore(store).subscribe((a: any) => {
-      console.log('new shop id : ', a);
+    console.log('value', store2);
+    // console.log('bhMon table', bHTable);
+
+    console.log("storeName", storeName)
+    console.log("shopname", data.shopName)
+
+    this.Jfile.createStore(store2, storeName).subscribe((a: any) => {
+      console.log('create store response : ', a);
       /*  this.route.navigate([`/download/store`]);*/
     });
   }

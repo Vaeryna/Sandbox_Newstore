@@ -17,8 +17,8 @@ export class CreateJsonFileService {
   constructor(private http: HttpClient) {
   }
 
-  createStore(data: any) {
-    return this.http.post(`${this.url}/createStore`, data);
+  createStore(data: any, storeName: string) {
+    return this.http.post(`${this.url}/createStore/${storeName}`, data);
   }
 
 }
