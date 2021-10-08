@@ -1,17 +1,18 @@
 
 <form [formGroup]="storeForm" (ngSubmit)="onSubmit()">
 
+  <!------ SHOP LABEL ----->
   <div class="row mb-3">
-    <label class="col-sm-2 col-form-label" for="shopName">
+    <label class="col-sm-2 col-form-label" for="label">
       Nom de la boutique
     </label>
     <div class="col-sm-3">
       <input
         class="form-control"
-        formControlName="shopName"
+        formControlName="label"
         type="text"
-        name="shopName"
-
+        name="label"
+        placeholder="001_US_ABC_Street"
       />
     </div>
   </div>
@@ -310,21 +311,7 @@
     <label class="btn btn-outline-info" for="giftNo"> Non</label>
   </div>
 
-  <!------ SHOP LABEL ----->
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label" for="label">
-      Nom de la boutique
-    </label>
-    <div class="col-sm-3">
-      <input
-        class="form-control"
-        formControlName="label"
-        type="text"
-        name="label"
-        placeholder="001_US_ABC_Street"
-      />
-    </div>
-  </div>
+
 
   <!------ TAX INCLUDED  ----->
   <div>

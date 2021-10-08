@@ -240,14 +240,14 @@ export class CreateStoreComponent implements OnInit {
     };
 
     const store2 = {
-      shopName: data.shopName,
+      shopName: data.label,
       shop: store
     }
 
     const storeName: any = sessionStorage.getItem("name");
 
     console.log('value', store2);
-   // console.log('bhMon table', bHTable);
+    // console.log('bhMon table', bHTable);
 
     console.log("storeName", storeName)
     console.log("shopname", data.shopName)
