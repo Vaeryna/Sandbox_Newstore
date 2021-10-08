@@ -3,15 +3,14 @@
 <form [formGroup]="headForm">
   <div class="row">
     <div class="col-md-3">
+      <!--suppress XmlInvalidId -->
       <label class="form-label" for="shop"> Nom du Shop </label>
-
-
-
       <input
         type="text"
         formControlName="shop"
         name="shop"
         class="form-control"
+        id="shop"
       />
       Un produit est importé dans un shop. Le shop contient les produits,
       leurs prix et leurs catégories
@@ -19,6 +18,7 @@
     </div>
 
     <div class="col-md-3">
+      <!--suppress XmlInvalidId -->
       <label class="form-label" for="name"> locale</label>
       <input
         type="text"
@@ -29,9 +29,11 @@
     </div>
     <div class="col-md-3">
       <label class="form-label" for="is_master"> is_master</label>
-      <div class="form-check">
+      <div class="form-check"
+           id="is_master">
         <label for="masterYes" class="form-check-label"> Oui </label>
         <input
+
           type="radio"
           formControlName="is_master"
           name="is_master"
@@ -62,6 +64,7 @@
     <div class="col-md-3">
       <label class="form-label" for="product_id"> product ID</label>
       <input
+        id="product_id"
         type="text"
         formControlName="product_id"
         name="product_id"
@@ -71,6 +74,7 @@
     <div class="col-md-3">
       <label class="form-label" for="variant_group_id"> variant_group_id</label>
       <input
+        id="variant_group_id"
         type="text"
         formControlName="variant_group_id"
         name="variant_group_id"
@@ -80,6 +84,7 @@
     <div class="col-md-3">
       <label class="form-label" for="title"> title</label>
       <input
+        id="title"
         type="text"
         formControlName="title"
         name="title"
@@ -92,6 +97,7 @@
     <div class="col-md-3">
       <label class="form-label" for="caption"> Légende du produit</label>
       <textarea
+        id="caption"
         type="text"
         formControlName="caption"
         name="caption"
@@ -104,9 +110,11 @@
   <!-- show in listing radio -->
   <div class="col-md-3">
     <label class="form-label" for="show_in_listing"> show_in_listing</label>
-    <div class="form-check">
+    <div class="form-check"
+         id="show_in_listing">
       <label for="show_in_listingYes" class="form-check-label"> Oui </label>
       <input
+
         type="radio"
         formControlName="show_in_listing"
         name="show_in_listing"
@@ -126,22 +134,23 @@
         id="show_in_listingNo"
       />
     </div>
-  </div>
 
-  <!--preorder-->
-  <div class="col-md-3">
     <label class="form-label" for="preorder_start"> Date de début des précommandes</label>
     <input
+      id="preorder_start"
       type="date"
       formControlName="preorder_start"
       name="preorder_start"
       class="form-control"
     />
   </div>
+
+
   <div class="row">
     <div class="col-md-3">
       <label class="form-label" for="online_from"> Date de <strong> début </strong> de mise en ligne</label>
       <input
+        id="online_from"
         type="date"
         formControlName="online_from"
         name="online_from"
@@ -152,6 +161,7 @@
     <div class="col-md-3">
       <label class="form-label" for="online_to"> Date de <strong> fin </strong> de mise en ligne</label>
       <input
+        id="online_to"
         type="date"
         formControlName="online_to"
         name="online_to"
@@ -195,9 +205,10 @@
         <!-- show in listing radio -->
         <div>
           <label class="form-label" for="is_main"> Image principale</label>
-          <div class="form-check">
+          <div class="form-check" id="is_main">
             <label for="is_mainYes" class="form-check-label"> Oui </label>
             <input
+
               type="radio"
               formControlName="is_main"
               name="is_main"
@@ -232,6 +243,7 @@
   <div class="col-md-3">
     <label class="form-label" for="tax_class_id"> tax_class_id</label>
     <input
+      id="tax_class_id"
       type="text"
       formControlName="tax_class_id"
       name="tax_class_id"
@@ -267,7 +279,8 @@
         <!-- show in listing radio -->
         <div>
           <label class="form-label" for="is_mainCategory"> Catégorie principale</label>
-          <div class="form-check">
+          <div class="form-check"
+               id="is_mainCategory">
             <label for="is_mainCategoryYes" class="form-check-label"> Oui </label>
             <input
               type="radio"
@@ -306,6 +319,7 @@
     <div class="col-md-3">
       <label class="form-label" for="material"> Matériaux</label>
       <input
+        id="material"
         type="text"
         formControlName="material"
         name="material"
@@ -315,6 +329,7 @@
     <div class="col-md-3">
       <label class="form-label" for="country_of_origin"> Pays d'origine</label>
       <input
+        id="country_of_origin"
         type="text"
         formControlName="country_of_origin"
         name="country_of_origin"
@@ -325,6 +340,7 @@
     <div class="col-md-3">
       <label class="form-label" for="product_hts_number"> product_hts_number</label>
       <input
+        id="product_hts_number"
         type="text"
         formControlName="product_hts_number"
         name="product_hts_number"
@@ -334,11 +350,13 @@
 
   </div>
 
-
+  <br>
   <div class="row">
+    <h6> Shipping details</h6>
     <div class="col-md-3">
       <label class="form-label" for="shipping_weight_value"> shipping_weight_value</label>
       <input
+        id="shipping_weight_value"
         type="number"
         formControlName="shipping_weight_value"
         name="shipping_weight_value"
@@ -349,6 +367,7 @@
     <div class="col-md-3">
       <label class="form-label" for="shipping_weight_unit"> shipping_weight_unit</label>
       <input
+        id="shipping_weight_unit"
         type="text"
         formControlName="shipping_weight_unit"
         name="shipping_weight_unit"
@@ -357,13 +376,10 @@
     </div>
 
 
-  </div>
-
-
-  <div class="row">
     <div class="col-md-3">
       <label class="form-label" for="shipping_dimension_length"> shipping_dimension_length</label>
       <input
+        id="shipping_dimension_length"
         type="number"
         formControlName="shipping_dimension_length"
         name="shipping_dimension_length"
@@ -373,6 +389,7 @@
     <div class="col-md-3">
       <label class="form-label" for="shipping_dimension_width"> shipping_dimension_width</label>
       <input
+        id="shipping_dimension_width"
         type="number"
         formControlName="shipping_dimension_width"
         name="shipping_dimension_width"
@@ -383,6 +400,7 @@
     <div class="col-md-3">
       <label class="form-label" for="shipping_dimension_height"> shipping_dimension_height</label>
       <input
+        id="shipping_dimension_height"
         type="number"
         formControlName="shipping_dimension_height"
         name="shipping_dimension_height"
@@ -393,6 +411,7 @@
     <div class="col-md-3">
       <label class="form-label" for="shipping_dimension_unit"> shipping_dimension_unit</label>
       <input
+        id="shipping_dimension_unit"
         type="text"
         formControlName="shipping_dimension_unit"
         name="shipping_dimension_unit"
@@ -400,42 +419,72 @@
       />
     </div>
   </div>
-
+  <br>
   <!--VARIATIONS-->
-  <div class="col-md-3">
-    <label class="form-label" for="variation_color_value"> variation_color_value</label>
-    <input
-      type="text"
-      formControlName="variation_color_value"
-      name="variation_color_value"
-      class="form-control"
-    />
-  </div>
+  <div class="row">
+    <h6> Details de la variation du produit </h6>
+    <div class="col-md-3">
+      <label class="form-label" for="variation_color_value"> variation_color_value</label>
+      <input
+        id="variation_color_value"
+        type="text"
+        formControlName="variation_color_value"
+        name="variation_color_value"
+        class="form-control"
+      />
+    </div>
 
-  <div class="col-md-3">
-    <label class="form-label" for="variation_size_value"> variation_size_value</label>
-    <input
-      type="text"
-      formControlName="variation_size_value"
-      name="variation_size_value"
-      class="form-control"
-    />
-  </div>
+    <div class="col-md-3">
+      <label class="form-label" for="variation_size_value"> variation_size_value</label>
+      <input
+        id="variation_size_value"
+        type="text"
+        formControlName="variation_size_value"
+        name="variation_size_value"
+        class="form-control"
+      />
+    </div>
 
-  <div class="col-md-3">
-    <label class="form-label" for="variation_size_gender"> variation_size_gender</label>
-    <input
-      type="text"
-      formControlName="variation_size_gender"
-      name="variation_size_gender"
-      class="form-control"
-    />
-  </div>
+    <div class="col-md-3">
+      <label class="form-label" for="variation_size_gender"> variation_size_gender</label>
+      <input
+        id="variation_size_gender"
+        type="text"
+        formControlName="variation_size_gender"
+        name="variation_size_gender"
+        class="form-control"
+      />
+    </div>
 
+
+    <div class="col-md-3">
+      <label class="form-label" for="variation_size_type"> variation_size_type</label>
+      <input
+        id="variation_size_type"
+        type="text"
+        formControlName="variation_size_type"
+        name="variation_size_type"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="variation_size_system"> variation_size_system</label>
+      <input
+        id="variation_size_system"
+        type="text"
+        formControlName="variation_size_system"
+        name="variation_size_system"
+        class="form-control"
+      />
+    </div>
+
+  </div>
 
   <div class="col-md-3">
     <label class="form-label" for="google_category"> google_category</label>
     <input
+      id="google_category"
       type="text"
       formControlName="google_category"
       name="google_category"
@@ -443,36 +492,6 @@
     />
   </div>
 
-  <div class="col-md-3">
-    <label class="form-label" for="variation_size_type"> variation_size_type</label>
-    <input
-      type="text"
-      formControlName="variation_size_type"
-      name="variation_size_type"
-      class="form-control"
-    />
-  </div>
-
-  <div class="col-md-3">
-    <label class="form-label" for="variation_size_system"> variation_size_system</label>
-    <input
-      type="text"
-      formControlName="variation_size_system"
-      name="variation_size_system"
-      class="form-control"
-    />
-  </div>
-
-
-  <div class="col-md-3">
-    <label class="form-label" for="variation_size_system"> variation_size_system</label>
-    <input
-      type="text"
-      formControlName="variation_size_system"
-      name="variation_size_system"
-      class="form-control"
-    />
-  </div>
 
   <!--EXTERNAL IDENTIFIERS-->
   <table class="table" formArrayName="external_identifiers">
@@ -538,6 +557,7 @@
   </table>
 
 </form>
+
 
 
 <!-- add button add new product-->

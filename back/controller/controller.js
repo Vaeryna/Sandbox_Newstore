@@ -4,18 +4,14 @@ const mkdirp = require("mkdirp");
 
 //set cookies with format for the new folder
 exports.setCookie = function (req, res) {
-    console.log("fonction setCookie BACK")
-
     console.log("recup: ", req.body.name);
     name = req.body.name
     const data2 = name.replace(/ /g, '_');
     res.cookie("name", data2)
-    console.log("data formatée", data2);
-    // next();
-    mkdirp(`../../Magasins/${data2}`)
-    console.log(`cookie : ${req.cookie}`)
-    res.send({message: `Cookie créé avec '${data2}' \n dossier créé avec '${data2}'`})
 
+    //Create folder
+    mkdirp(`../../Magasins/${data2}`)
+    res.send({message: `Cookie créé avec '${data2}' \n dossier créé avec '${data2}'`})
 };
 
 //Create folder for the new sign
@@ -30,8 +26,6 @@ exports.createFolder = function (req, res) {
     console.log("dossier créé");
     res.send({message: "Dossier créé"});
     //  }
-
-    //  next();
 };
 
 
@@ -41,7 +35,6 @@ exports.writeFileStore = function (req, res) {
 
     const shopName = req.body.shopName;
     let data = JSON.stringify(req.body.shop);
-
 
     console.log('storename', storeName, '\n shopname', shopName, "\n data", data)
     fs.writeFileSync(`../../Magasins/${storeName}/store-${shopName}.json`, data);
@@ -63,19 +56,4 @@ exports.writeFileProduct = function (req, res, next) {
     next()
 }
 
-// CREATE STORE FILES
-/*
-exports.newStore = function (req, res, next) {
-    const SignName = ""
-    const StoreName = ""
-    if (`../../Magasins/${SignName}`) {
-        if (`../../Magasins/${SignName}/${StoreName}.json`) {
-            /!* new file with name+i*!/
-        } else {
-            /!*create new file*!/
-        }
-    } else {
-        /!*create folder*!/
-        /!* create file*!/
-    }
-}*/
+
